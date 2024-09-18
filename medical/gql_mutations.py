@@ -88,6 +88,7 @@ class ServiceInputType(ItemOrServiceInputType):
     category = graphene.String(required=False)
     items = graphene.List(ServiceItemInputType, required=False)
     services = graphene.List(ServiceServiceInputType, required=False)
+    covered = graphene.Boolean(required=False)
 
 
 def reset_item_or_service_before_update(item_service):
@@ -290,6 +291,7 @@ class DeleteServiceMutation(OpenIMISMutation):
 class ItemInputType(ItemOrServiceInputType):
     package = graphene.String()
     quantity = graphene.Decimal()
+    covered = graphene.Boolean(required=False)
 
 class CreateItemMutation(CreateOrUpdateItemOrServiceMutation):
     _mutation_module = "medical"
